@@ -1,0 +1,24 @@
+CC = gcc
+CFLAGS = -Wall -g
+
+OBJS = dog.o blackcow.o turtle.o main.o
+TARGET = animal.exe
+
+$(TARGET): $(OBJS)
+	$(CC) $(CFLAGS) -o $(TARGET) $(OBJS)
+
+
+dog.o : dog.c
+	$(CC) $(CFLAGS) -c -o dog.o dog.c
+
+blackcow.o : blackcow.c
+	$(CC) $(CFLAGS) -c -o blackcow.o blackcow.c
+
+turtle.o : turtle.c
+	$(CC) $(CFLAGS) -c -o turtle.o turtle.c
+
+main.o : main.c
+	$(CC) $(CFLAGS) -c -o main.o main.c
+.PHONY: clean
+clean :
+	rm *.o $(TARGET)
